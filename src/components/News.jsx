@@ -85,7 +85,7 @@ const News = ({ pageSize, country, category }) => {
       <h2 className="text-center">NewsDaily - Top Headlines</h2>
 
       <InfiniteScroll
-        dataLength={articles.length}
+        dataLength={articles?.length}
         next={loadMore}
         hasMore={page <= results / pageSize}
         loader={<ClimbingBoxLoader />}
@@ -93,7 +93,7 @@ const News = ({ pageSize, country, category }) => {
         <div className="container example">
           <div className="row my-3">
             {articles.map((data, index) => (
-              <div className="col-md-4 my-1">
+              <div key={index} className="col-md-4 my-1">
                 <NewsItem
                   title={data.title ? data.title : ""}
                   description={data.description ? data.description : ""}
